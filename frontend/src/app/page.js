@@ -186,21 +186,21 @@ export default function DreamTeamBuilder() {
     }, [skills, teamSize, isLoading]);
 
     return (
-        <div className="min-h-screen bg-gray-900 text-gray-200 font-sans">
-            <div className="container mx-auto p-4 md:p-8">
-                <header className="text-center mb-8">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white">AI-Powered Dream Team Builder</h1>
-                    <p className="text-lg text-gray-400 mt-2">Assemble an optimal team from Torre's talent network based on your project's needs.</p>
+        <div className={'min-h-screen bg-gray-900 text-gray-200 font-sans'}>
+            <div className={'container mx-auto p-4 md:p-8'}>
+                <header className={'text-center mb-8'}>
+                    <h1 className={'text-4xl md:text-5xl font-bold text-white'}>AI-Powered Dream Team Builder</h1>
+                    <p className={'text-lg text-gray-400 mt-2'}>{`Assemble an optimal team from Torre's talent network based on your project's needs.`}</p>
                 </header>
 
                 <main>
-                    <div className="bg-gray-800/60 border border-gray-700 rounded-xl p-6 mb-8 max-w-3xl mx-auto shadow-lg">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
-                            <div className="md:col-span-2">
+                    <div className={'bg-gray-800/60 border border-gray-700 rounded-xl p-6 mb-8 max-w-3xl mx-auto shadow-lg'}>
+                        <div className={'grid grid-cols-1 md:grid-cols-3 gap-6 items-end'}>
+                            <div className={'md:col-span-2'}>
                                 <SkillInput skills={skills} setSkills={setSkills} />
                             </div>
                             <div>
-                                <label htmlFor="team-size" className="block text-sm font-medium text-gray-300 mb-1">
+                                <label htmlFor="team-size" className={'block text-sm font-medium text-gray-300 mb-1'}>
                                     Desired Team Size
                                 </label>
                                 <input
@@ -210,31 +210,31 @@ export default function DreamTeamBuilder() {
                                     max="10"
                                     value={teamSize}
                                     onChange={(e) => setTeamSize(Number(e.target.value))}
-                                    className="w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-white focus:ring-2 focus:ring-sky-500 focus:outline-none"
+                                    className={'w-full bg-gray-900 border border-gray-700 rounded-lg p-2 text-white focus:ring-2 focus:ring-sky-500 focus:outline-none'}
                                 />
                             </div>
                         </div>
-                        <div className="mt-6 text-center">
+                        <div className={'mt-6 text-center'}>
                             <button
                                 onClick={handleBuildTeam}
                                 disabled={isLoading || skills.length === 0}
-                                className="bg-sky-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-sky-500 transition-colors duration-300 disabled:bg-gray-600 disabled:cursor-not-allowed flex items-center justify-center mx-auto"
+                                className={'bg-sky-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-sky-500 transition-colors duration-300 disabled:bg-gray-600 disabled:cursor-not-allowed flex items-center justify-center mx-auto'}
                             >
                                 {isLoading ? 'Building...' : 'Build My Dream Team'}
                             </button>
                         </div>
                     </div>
 
-                    <div className="text-center mb-8 h-6">
-                        {error && <p className="text-red-400">{error}</p>}
-                        {!error && status && <p className="text-gray-400">{status}</p>}
+                    <div className={'text-center mb-8 h-6'}>
+                        {error && <p className={'text-red-400'}>{error}</p>}
+                        {!error && status && <p className={'text-gray-400'}>{status}</p>}
                     </div>
 
-                    <div className="space-y-12">
+                    <div className={'space-y-12'}>
                         {dreamTeam.length > 0 && (
                             <section>
-                                <h2 className="text-3xl font-bold text-center text-white mb-6">Your Recommended Dream Team</h2>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                                <h2 className={'text-3xl font-bold text-center text-white mb-6'}>Your Recommended Dream Team</h2>
+                                <div className={'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'}>
                                     {dreamTeam.map(person => (
                                         <CandidateCard key={person.username} person={person} />
                                     ))}
@@ -244,17 +244,17 @@ export default function DreamTeamBuilder() {
                         )}
                         {candidatePool.length > 0 && !dreamTeam.length > 0 && (
                             <section>
-                                <h2 className="text-2xl font-bold text-center text-white mb-6">Full Candidate Pool ({candidatePool.length} found)</h2>
-                                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                                <h2 className={'text-2xl font-bold text-center text-white mb-6'}>{`Full Candidate Pool (${candidatePool.length} found)`}</h2>
+                                <div className={'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4'}>
                                     {candidatePool.map(person => (
-                                        <div key={person.username} className="text-center">
+                                        <div key={person.username} className={'text-center'}>
                                             <img
                                                 src={person.picture || `https://placehold.co/80x80/1a202c/ffffff?text=${person.name?.charAt(0)}`}
                                                 alt={person.name}
-                                                className="w-16 h-16 rounded-full mx-auto border-2 border-gray-700 object-cover"
+                                                className={'w-16 h-16 rounded-full mx-auto border-2 border-gray-700 object-cover'}
                                                 onError={(e) => { e.target.onerror = null; e.target.src = `https://placehold.co/80x80/1a202c/ffffff?text=${person.name?.charAt(0)}`; }}
                                             />
-                                            <p className="text-xs text-gray-400 mt-1 truncate">{person.name}</p>
+                                            <p className={'text-xs text-gray-400 mt-1 truncate'}>{person.name}</p>
                                         </div>
                                     ))}
                                 </div>
