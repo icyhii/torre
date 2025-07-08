@@ -6,7 +6,9 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors()); // Enable Cross-Origin Resource Sharing
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:3000'
+})); // Enable Cross-Origin Resource Sharing
 app.use(express.json()); // To parse JSON bodies
 
 // Routes
@@ -18,5 +20,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });

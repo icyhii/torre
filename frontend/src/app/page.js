@@ -154,7 +154,7 @@ export default function DreamTeamBuilder() {
             skills: skills.join(','),
             size: teamSize
         });
-        const url = `http://localhost:4000/api/search?${params.toString()}`;
+        const url = `${process.env.NEXT_PUBLIC_API_URL}/api/search?${params.toString()}`;
         const es = new window.EventSource(url);
         eventSourceRef.current = es;
 
