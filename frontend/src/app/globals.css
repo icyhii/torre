@@ -1,26 +1,35 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-torre-dark text-gray-200 font-sans antialiased;
+}
+
+.torre-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  background: #23242B;
+}
+.torre-scrollbar::-webkit-scrollbar-thumb {
+  background: #2C2D34;
+  border-radius: 8px;
+}
+
+.sidebar-filter {
+  @apply bg-torre-card border border-torre-border rounded-xl p-6 mb-8 shadow-lg;
+}
+.sidebar-toggle {
+  @apply flex items-center justify-between py-2 px-3 rounded-lg bg-torre-dark hover:bg-torre-card transition-colors duration-200 cursor-pointer text-gray-300 font-medium;
+}
+.sidebar-section-title {
+  @apply text-xs uppercase tracking-wider text-torre-yellow font-bold mb-2 mt-6;
+}
+.main-content-card {
+  @apply bg-torre-card border border-torre-border rounded-xl p-6 shadow-lg mb-6;
+}
+.torre-accent {
+  @apply text-torre-yellow;
+}
+.torre-btn {
+  @apply bg-torre-yellow text-torre-dark font-bold py-2 px-6 rounded-lg hover:bg-yellow-300 transition-colors duration-200;
 }
