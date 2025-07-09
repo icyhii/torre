@@ -1,17 +1,14 @@
 {
   "name": "dream-team-builder-api",
   "version": "1.0.0",
-  "description": "// Initial package.json will be created by npm init -y",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "type": "module",
+  "description": "Vercel serverless backend for Dream Team Builder",
+  "main": "api/search.js",
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^5.1.0",
     "node-fetch": "^3.3.2"
   }
 }
